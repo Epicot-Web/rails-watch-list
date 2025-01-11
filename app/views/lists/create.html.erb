@@ -1,2 +1,23 @@
-<h1>Lists#create</h1>
-<p>Find me in app/views/lists/create.html.erb</p>
+<h1>Create a New List</h1>
+
+<%= form_with(model: @list, local: true) do |form| %>
+  <% if @list.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+      <ul>
+        <% @list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "List Name" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Create List" %>
+  </div>
+<% end %>

@@ -1,2 +1,10 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1><%= @list.name %></h1>
+
+<h3>Movies in this list:</h3>
+<ul>
+  <% @list.movies.each do |movie| %>
+    <li><%= movie.title %> - <%= movie.rating %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to All Lists', lists_path %>

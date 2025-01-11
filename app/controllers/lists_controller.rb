@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = list.find(params[:id])
+    @list = List.find(params[:id])
   end
 
   def new
